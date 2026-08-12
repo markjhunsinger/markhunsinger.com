@@ -1,0 +1,5 @@
+header a[href="/"] img {
+  height: 4rem;
+  width: auto;
+  max-width: none;
+}
