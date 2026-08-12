@@ -1,8 +1,3 @@
-Both in TOML front matter to match what Hugo generated for you.
-
-content/about.md
-
-markdown
 +++
 title = "About"
 date = 2026-08-12
