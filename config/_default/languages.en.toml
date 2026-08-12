@@ -10,7 +10,7 @@ title = "Mark Hunsinger"
   dateFormat = "2 January 2006"
 
   # mainSections = ["section1", "section2"]
-  # description = "My awesome website"
+  description = "Penetration tester. Notes on offensive security, Active Directory, and adversary emulation."
 
 [params.author]
   name = "Mark Hunsinger"
@@ -50,7 +50,6 @@ title = "Mark Hunsinger"
   #   { pinterest = "https://pinterest.com/username" },
   #   { reddit = "https://reddit.com/user/username" },
   #   { researchgate = "https://www.researchgate.net/profile/username" },
-      { rss = true }
   #   { slack = "https://workspace.url/team/userid" },
   #   { snapchat = "https://snapchat.com/add/username" },
   #   { soundcloud = "https://soundcloud.com/username" },
