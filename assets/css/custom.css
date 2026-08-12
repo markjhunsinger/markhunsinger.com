@@ -3,3 +3,9 @@ header a[href="/"] img {
   width: auto;
   max-width: none;
 }
+
+@media (min-width: 1024px) {
+  .max-w-prose {
+    max-width: 100ch;
+  }
+}
