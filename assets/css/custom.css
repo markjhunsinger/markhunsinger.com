@@ -4,8 +4,56 @@ header a[href="/"] img {
   max-width: none;
 }
 
-@media (min-width: 1024px) {
-  .max-w-prose {
-    max-width: 100ch;
-  }
+/* Congo centers <body> with margin: auto (Tailwind m-auto) up to max-w-7xl. GLightbox
+   measures the scrollbar width at open time and injects its own <style class="gcss-styles">
+   into <head> setting .gscrollbar-fixer { margin-right: Npx } on <body>. Forcing that
+   margin-right to 0 (an earlier attempt) broke the symmetric auto-centering instead of
+   fixing it, since margin-left stayed auto. Forcing both back to auto keeps it centered
+   regardless of what GLightbox sets. */
+body.gscrollbar-fixer {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Reserve scrollbar space permanently so it never disappears/reappears (GLightbox
+   sets overflow:hidden on <html> while open), which otherwise causes a visible
+   jerk as the viewport briefly widens. */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Dark scrollbar to match dark mode (html.dark is toggled by Congo's appearance.js). */
+html.dark {
+  scrollbar-color: rgb(var(--color-neutral-600)) rgb(var(--color-neutral-900));
+}
+
+html.dark ::-webkit-scrollbar {
+  width: 12px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: rgb(var(--color-neutral-900));
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-neutral-600));
+  border-radius: 6px;
+  border: 3px solid rgb(var(--color-neutral-900));
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--color-neutral-500));
+}
+
+/* Tailwind Typography wraps inline `code` in literal backticks by default */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+/* Click-to-enlarge post images use GLightbox, see layouts/_markup/render-image.html
+   and layouts/_partials/extend-head.html. .prose a:hover sets an orange
+   background-color on any link; override it on the thumbnail trigger. */
+.prose a.cursor-zoom-in:hover {
+  background-color: transparent;
 }

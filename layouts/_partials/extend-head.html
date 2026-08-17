@@ -1,0 +1,24 @@
+{{ $algorithm := .Site.Params.fingerprintAlgorithm | default "sha256" }}
+
+{{ $glightboxCSS := resources.Get "lib/glightbox/glightbox.min.css" }}
+{{ if $glightboxCSS }}
+  {{ $glightboxCSS = $glightboxCSS | resources.Fingerprint $algorithm }}
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="{{ $glightboxCSS.Permalink }}"
+    integrity="{{ $glightboxCSS.Data.Integrity }}"
+  />
+{{ end }}
+
+{{ $glightboxJS := resources.Get "lib/glightbox/glightbox.min.js" }}
+{{ $glightboxInit := resources.Get "js/glightbox-init.js" }}
+{{ if and $glightboxJS $glightboxInit }}
+  {{ $glightboxBundle := slice $glightboxJS $glightboxInit | resources.Concat "js/glightbox.bundle.js" | resources.Minify | resources.Fingerprint $algorithm }}
+  <script
+    type="text/javascript"
+    src="{{ $glightboxBundle.Permalink }}"
+    integrity="{{ $glightboxBundle.Data.Integrity }}"
+    defer
+  ></script>
+{{ end }}

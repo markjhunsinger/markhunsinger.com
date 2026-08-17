@@ -1,6 +1,6 @@
 +++
 title = "To Help Desk, or not to Help Desk"
-date = 2022-11-28
+date = "2022-11-28"
 draft = false
 summary = "How I got from a call center to a pentesting job, and whether you actually need help desk experience first."
 tags = ["help desk", "pentesting", "oscp", "ejpt", "career"]

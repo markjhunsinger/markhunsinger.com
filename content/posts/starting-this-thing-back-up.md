@@ -1,6 +1,6 @@
 +++
 title = "Starting This Thing Back Up"
-date = 2026-08-12
+date = "2026-08-12"
 draft = false
 summary = "Four years, three certs, and a rebuilt site later, I'm writing again."
 tags = ["meta", "career"]
